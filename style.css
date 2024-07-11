@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+    font-family: 'Smythe', sans-serif;
+}
+
+/* typography */
+h1 {
+    position: absolute;
+    color: white;
+    font-size: 39px;
+    margin: 0;
+    top: 35px;
+    left: 25px;
+}
+
+h2 {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    position: absolute;
+    top: 85px;
+    left: 25px;
+}
+
+/* layout */
+main, header {
+    width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    background-image: url('images/pexels-valeriya-1639562.jpg');
+    background-size: 155%;
+    background-position: center 65%;
+    height: 167px;
+    margin-top: 40px;
+    position: relative;
+}
