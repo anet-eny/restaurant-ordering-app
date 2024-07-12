@@ -6,22 +6,18 @@ html, body {
 }
 
 /* typography */
+
 h1 {
-    position: absolute;
-    color: white;
     font-size: 39px;
+    color: white;
     margin: 0;
-    top: 35px;
-    left: 25px;
+
 }
 
 h2 {
-    color: white;
     font-size: 22px;
+    color: white;
     margin: 0;
-    position: absolute;
-    top: 85px;
-    left: 25px;
 }
 
 /* layout */
@@ -36,5 +32,10 @@ header {
     background-position: center 65%;
     height: 167px;
     margin-top: 40px;
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 25px;
 }
+
