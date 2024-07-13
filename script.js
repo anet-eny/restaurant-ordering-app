@@ -19,7 +19,7 @@ function getMenuHtml (menuArray) {
                         <p class="${price}">$14</p> 
                     </div>
                 </div>
-                <button class="add-btn">+</button> 
+                <button class="add-btn" data-id=${id}>+</button> 
         </div>
         `
     }).join("")
