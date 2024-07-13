@@ -16,7 +16,7 @@ function getMenuHtml (menuArray) {
                     <div class="item-inner">
                         <h2>${name}</h2>
                         <p class="item-desc">${ingredients}</p>
-                        <p class="${price}">$14</p> 
+                        <p class="item-price">$${price}</p> 
                     </div>
                 </div>
                 <button class="add-btn" data-id=${id}>+</button> 
@@ -25,4 +25,4 @@ function getMenuHtml (menuArray) {
     }).join("")
 }
 
-document.getElementById('menu').innerHTML = getMenuHtml(menuArray)
+document.getElementById('menu-el').innerHTML = getMenuHtml(menuArray)

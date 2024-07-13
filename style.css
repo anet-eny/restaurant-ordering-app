@@ -19,6 +19,26 @@ h3 {
     margin: 0 0 0 25px;
 }
 
+.item-inner h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.item-desc {
+    font-size: 16px;
+    color: #8B8B8B;
+    margin: 5px 0 16px 0;
+}
+
+.item-price {
+    margin: 0;
+    font-size: 20px;
+}
+
+.order-h2 {
+    text-align: center;
+}
+
 /* layout */
 .container {
     width: 600px;
@@ -61,21 +81,24 @@ header {
     justify-content: center;
 }
 
-.item-inner h2 {
-    margin: 0;
-    font-size: 28px;
+
+.order-el {
+    margin: 40px;
 }
 
-.item-desc {
-    font-size: 16px;
-    color: #8B8B8B;
-    margin: 5px 0 16px 0;
+.order-list {
+    display: flex;
+    align-items: center;
 }
 
-.item-price {
-    margin: 0;
-    font-size: 20px;
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid #393333;
 }
+
+/* buttons */
 
 .add-btn {
     border-radius: 50%;
@@ -89,6 +112,25 @@ header {
     flex-shrink: 0;
 
 }
+
+.remove-btn {
+    color: #BBBBBB;
+    border: none;
+    background-color: white;
+    padding: 10px;
+}
+
+.purchase-btn {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #127a58;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;
+}
+
 
 /* images */
 .emoji {
