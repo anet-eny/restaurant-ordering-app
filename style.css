@@ -23,7 +23,7 @@ h3 {
 .container {
     width: 600px;
     height: 1160px;
-    margin: 0 auto;
+    margin: 40px auto;
     background-color: white;
     border-radius: 20px;
 }
@@ -33,7 +33,6 @@ header {
     background-size: 155%;
     background-position: center 65%;
     height: 167px;
-    margin-top: 40px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
