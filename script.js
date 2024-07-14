@@ -1,5 +1,24 @@
 import { menuArray } from "./data.js";
 
+let cartArr = []
+
+document.addEventListener('click', function(e){
+    if(e.target.dataset.id){
+        addToCart(e.target.dataset.id)
+    }
+})
+
+function addToCart(itemId) {
+    const targetItemObj = menuArray.filter(function(item){
+        return itemId === item.id.toString()
+    })[0]
+    cartArr.push(targetItemObj)
+    console.log(cartArr)
+
+}
+
+
+
 function getMenuHtml (menuArray) {
     return menuArray.map(item => {
         const {
