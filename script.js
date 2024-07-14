@@ -20,7 +20,7 @@ function handleAddToCart(itemId) {
     } else if (cartArr.length > 1) {
         renderNewCartItem(targetItemObj)
     }
-
+    updateTotalPrice()
 }
 
 function renderFullCart() {
@@ -45,7 +45,7 @@ function renderFullCart() {
                 </div>
                 <div class="total">
                     <h2>Total price:</h2>
-                    <p class="item-price">$14</p> 
+                    <p id="total-price" class="item-price"></p> 
                 </div>
                 <button class="purchase-btn">Complete order</button>
     `
@@ -63,6 +63,11 @@ function renderNewCartItem(item) {
         </div> 
     `
     document.getElementById('cart-list').innerHTML += addedItemHtml
+}
+
+function updateTotalPrice(){
+    const totalPrice = cartArr.reduce((total, item) => total + item.price, 0)
+    document.getElementById('total-price').textContent = `$${totalPrice}`
 }
 
 
