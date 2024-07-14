@@ -34,11 +34,13 @@ function getCartHtml() {
         cartHtml += `
         <h2 class="order-h2">Your order</h2>
                 <div id="cart-list" class="cart-list">
-                    <div class="left-content">
-                        <h2>${name}</h2>
-                        <button class="remove-btn">remove</button>
+                    <div class="cart-item">
+                        <div class="left-content">
+                            <h2>${name}</h2>
+                            <button class="remove-btn">remove</button>
+                        </div>
+                        <p class="item-price">$${price}</p> 
                     </div>
-                    <p class="item-price">$${price}</p> 
                 </div>
                
                 <div class="total">
@@ -60,11 +62,13 @@ function addCartHtml() {
         price
     } = lastObjInCart
     addedItemHtml += `
-        <div class="left-content">
-            <h2>${name}</h2>
-            <button class="remove-btn">remove</button>
-        </div>
-        <p class="item-price">$${price}</p>  
+        <div class="cart-item">
+            <div class="left-content">
+                <h2>${name}</h2>
+                <button class="remove-btn">remove</button>
+            </div>
+            <p class="item-price">$${price}</p> 
+        </div> 
     `
     console.log(addedItemHtml)
     document.getElementById('cart-list').innerHTML += addedItemHtml

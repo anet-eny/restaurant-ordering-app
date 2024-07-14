@@ -91,6 +91,11 @@ header {
     flex-direction: column;
 }
 
+.cart-item {
+    display: flex;
+    align-items: center;
+}
+
 .total {
     display: flex;
     align-items: center;
