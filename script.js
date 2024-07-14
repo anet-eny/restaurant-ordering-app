@@ -33,7 +33,7 @@ function getCartHtml() {
         
         cartHtml += `
         <h2 class="order-h2">Your order</h2>
-                <div class="order-list">
+                <div id="order-list" class="order-list">
                     <div class="left-content">
                         <h2>${name}</h2>
                         <button class="remove-btn">remove</button>
@@ -49,17 +49,27 @@ function getCartHtml() {
         `
         
     })
-    return renderCart(cartHtml)
+    document.getElementById('order-el').innerHTML = cartHtml
 }
 
 function addCartHtml() {
-
+    let addedItemHtml = ''
+    const lastObjInCart = cartArr.pop()
+    const {
+        name,
+        price
+    } = lastObjInCart
+    addedItemHtml += `
+        <div class="left-content">
+            <h2>${name}</h2>
+            <button class="remove-btn">remove</button>
+        </div>
+        <p class="item-price">$${price}</p>  
+    `
+    console.log(addedItemHtml)
+    document.getElementById('order-list').innerHTML += addedItemHtml
 }
 
-
-function renderCart(renderItem) {
-    document.getElementById('order-el').innerHTML = renderItem
-}
 
 
 
