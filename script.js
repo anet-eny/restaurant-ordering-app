@@ -4,11 +4,11 @@ let cartArr = []
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.id){
-        addToCart(e.target.dataset.id)
+        handleAddToCart(e.target.dataset.id)
     }
 })
 
-function addToCart(itemId) {
+function handleAddToCart(itemId) {
     const targetItemObj = menuArray.filter(function(item){
         return itemId === item.id.toString()
     })[0]
@@ -16,52 +16,44 @@ function addToCart(itemId) {
         cartArr.push(targetItemObj)
     }
     if (cartArr.length === 1) {
-        getCartHtml()
+        renderFullCart()
     } else if (cartArr.length > 1) {
-        addCartHtml()
+        renderNewCartItem(targetItemObj)
     }
 
 }
 
-function getCartHtml() {
+function renderFullCart() {
     let cartHtml = ''
-    cartArr.map(item => {
-        const {
-            name,
-            price
-        } = item
-        
+    cartArr.forEach(item => {
+        const { name, price } = item
         cartHtml += `
-        <h2 class="order-h2">Your order</h2>
-                <div id="cart-list" class="cart-list">
-                    <div class="cart-item">
-                        <div class="left-content">
-                            <h2>${name}</h2>
-                            <button class="remove-btn">remove</button>
-                        </div>
-                        <p class="item-price">$${price}</p> 
-                    </div>
+            <div class="cart-item">
+                <div class="left-content">
+                    <h2>${name}</h2>
+                    <button class="remove-btn">remove</button>
                 </div>
-               
+                <p class="item-price">$${price}</p> 
+            </div>
+        `
+        
+    })
+    document.getElementById('cart-el').innerHTML = `
+                <h2 class="order-h2">Your order</h2>
+                <div id="cart-list" class="cart-list">
+                    ${cartHtml}
+                </div>
                 <div class="total">
                     <h2>Total price:</h2>
                     <p class="item-price">$14</p> 
                 </div>
                 <button class="purchase-btn">Complete order</button>
-        `
-        
-    })
-    document.getElementById('cart-el').innerHTML = cartHtml
+    `
 }
 
-function addCartHtml() {
-    let addedItemHtml = ''
-    const lastObjInCart = cartArr.pop()
-    const {
-        name,
-        price
-    } = lastObjInCart
-    addedItemHtml += `
+function renderNewCartItem(item) {
+    const { name, price } = item
+    const addedItemHtml = `
         <div class="cart-item">
             <div class="left-content">
                 <h2>${name}</h2>
@@ -70,7 +62,6 @@ function addCartHtml() {
             <p class="item-price">$${price}</p> 
         </div> 
     `
-    console.log(addedItemHtml)
     document.getElementById('cart-list').innerHTML += addedItemHtml
 }
 
