@@ -26,11 +26,12 @@ function handleAddToCart(itemId) {
 function renderFullCart() {
     let cartHtml = ''
     cartArr.forEach(item => {
-        const { name, price } = item
+        const { name, price, quantity } = item
         cartHtml += `
             <div class="cart-item">
                 <div class="left-content">
                     <h2>${name}</h2>
+                    <h2 id="quantity" class="quantity">${quantity}x</h2>
                     <button class="remove-btn">remove</button>
                 </div>
                 <p class="item-price">$${price}</p> 
@@ -52,11 +53,12 @@ function renderFullCart() {
 }
 
 function renderNewCartItem(item) {
-    const { name, price } = item
+    const { name, price, quantity } = item
     const addedItemHtml = `
         <div class="cart-item">
             <div class="left-content">
                 <h2>${name}</h2>
+                <h2 id="quantity" class="quantity">${quantity}x</h2>
                 <button class="remove-btn">remove</button>
             </div>
             <p class="item-price">$${price}</p> 
