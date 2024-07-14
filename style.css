@@ -110,6 +110,7 @@ header {
     font-weight: 200;
     padding: 0;
     flex-shrink: 0;
+    cursor: pointer;
 
 }
 
@@ -118,6 +119,7 @@ header {
     border: none;
     background-color: white;
     padding: 10px;
+    cursor: pointer;
 }
 
 .purchase-btn {
@@ -129,6 +131,7 @@ header {
     font-weight: bold;
     width: 100%;
     padding: 20px;
+    cursor: pointer;
 }
 
 
