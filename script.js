@@ -33,7 +33,7 @@ function getCartHtml() {
         
         cartHtml += `
         <h2 class="order-h2">Your order</h2>
-                <div id="order-list" class="order-list">
+                <div id="cart-list" class="cart-list">
                     <div class="left-content">
                         <h2>${name}</h2>
                         <button class="remove-btn">remove</button>
@@ -49,7 +49,7 @@ function getCartHtml() {
         `
         
     })
-    document.getElementById('order-el').innerHTML = cartHtml
+    document.getElementById('cart-el').innerHTML = cartHtml
 }
 
 function addCartHtml() {
@@ -67,7 +67,7 @@ function addCartHtml() {
         <p class="item-price">$${price}</p>  
     `
     console.log(addedItemHtml)
-    document.getElementById('order-list').innerHTML += addedItemHtml
+    document.getElementById('cart-list').innerHTML += addedItemHtml
 }
 
 

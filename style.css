@@ -82,11 +82,11 @@ header {
 }
 
 
-.order-el {
+.cart-el {
     margin: 40px;
 }
 
-.order-list {
+.cart-list {
     display: flex;
     flex-direction: column;
 }
