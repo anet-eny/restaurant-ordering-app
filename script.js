@@ -14,17 +14,47 @@ function handleAddToCart(itemId) {
         const cartItem = cartArr.find(item => itemId === item.id.toString())
         if (cartItem) {
             cartItem.quantity += 1
+            updateItemCart(cartItem)
         } else {
-            cartArr.push(targetItemObj)
+            const newCartItem = { ...targetItemObj, quantity: 1 }
+            cartArr.push(newCartItem)
+            renderNewCartItem(newCartItem)
         }
     }
     if (cartArr.length === 1) {
         renderFullCart()
-    } else if (cartArr.length > 1) {
-        renderNewCartItem(targetItemObj)
-    }
+    } 
+
     updateTotalPrice()
 }
+
+function renderNewCartItem(item) {
+    const { name, price, quantity } = item
+    const addedItemHtml = `
+        <div class="cart-item">
+            <div class="left-content">
+                <h2>${name}</h2>
+                <h2 id="quantity" class="quantity">${quantity}x</h2>
+                <button class="remove-btn">remove</button>
+            </div>
+            <p class="item-price">$${price}</p> 
+        </div> 
+    `
+    document.getElementById('cart-list').innerHTML += addedItemHtml
+}
+
+
+function updateItemCart(cartItem) {
+    document.getElementById('quantity').textContent = `${cartItem.quantity}`
+   
+}
+
+function updateTotalPrice(){
+    const totalPrice = cartArr.reduce((total, item) => total + item.price, 0)
+    document.getElementById('total-price').textContent = `$${totalPrice}`
+}
+
+
 
 function renderFullCart() {
     let cartHtml = ''
@@ -54,28 +84,6 @@ function renderFullCart() {
                 <button class="purchase-btn">Complete order</button>
     `
 }
-
-function renderNewCartItem(item) {
-    const { name, price, quantity } = item
-    const addedItemHtml = `
-        <div class="cart-item">
-            <div class="left-content">
-                <h2>${name}</h2>
-                <h2 id="quantity" class="quantity">${quantity}x</h2>
-                <button class="remove-btn">remove</button>
-            </div>
-            <p class="item-price">$${price}</p> 
-        </div> 
-    `
-    document.getElementById('cart-list').innerHTML += addedItemHtml
-}
-
-function updateTotalPrice(){
-    const totalPrice = cartArr.reduce((total, item) => total + item.price, 0)
-    document.getElementById('total-price').textContent = `$${totalPrice}`
-}
-
-
 
 
 function getMenuHtml (menuArray) {
