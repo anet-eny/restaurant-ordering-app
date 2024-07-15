@@ -3,8 +3,10 @@ import { menuArray } from "./data.js";
 let cartArr = []
 
 document.addEventListener('click', function(e){
-    if(e.target.dataset.id){
-        handleAddToCart(e.target.dataset.id)
+    if(e.target.dataset.add){
+        handleAddToCart(e.target.dataset.add)
+    } else if (e.target.dataset.remove) {
+        handleRemoveFromCart(e.target.dataset.remove)
     }
 })
 
@@ -23,7 +25,14 @@ function handleAddToCart(itemId) {
     updateTotalPrice()
 }
 
+function handleRemoveFromCart(index) {
+    cartArr.splice(index, 1)
+    renderFullCart()
+    updateTotalPrice()
+}
+
 function renderFullCart() {
+    const index = cartArr.length - 1
     let cartHtml = ''
     cartArr.forEach(item => {
         const { name, price } = item
@@ -31,7 +40,7 @@ function renderFullCart() {
             <div class="cart-item">
                 <div class="left-content">
                     <h2>${name}</h2>
-                    <button class="remove-btn">remove</button>
+                    <button class="remove-btn" data-remove=${index}>remove</button>
                 </div>
                 <p class="item-price">$${price}</p> 
             </div>
@@ -52,12 +61,13 @@ function renderFullCart() {
 }
 
 function renderNewCartItem(item) {
+    const index = cartArr.length - 1
     const { name, price } = item
     const addedItemHtml = `
         <div class="cart-item">
             <div class="left-content">
                 <h2>${name}</h2>
-                <button class="remove-btn">remove</button>
+                <button class="remove-btn" data-remove=${index}>remove</button>
             </div>
             <p class="item-price">$${price}</p> 
         </div> 
@@ -69,9 +79,6 @@ function updateTotalPrice(){
     const totalPrice = cartArr.reduce((total, item) => total + item.price, 0)
     document.getElementById('total-price').textContent = `$${totalPrice}`
 }
-
-
-
 
 function getMenuHtml (menuArray) {
     return menuArray.map(item => {
@@ -92,7 +99,7 @@ function getMenuHtml (menuArray) {
                         <p class="item-price">$${price}</p> 
                     </div>
                 </div>
-                <button class="add-btn" data-id=${id}>+</button> 
+                <button class="add-btn" data-add=${id}>+</button> 
         </div>
         `
     }).join("")
