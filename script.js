@@ -9,11 +9,14 @@ document.addEventListener('click', function(e){
 })
 
 function handleAddToCart(itemId) {
-    const targetItemObj = menuArray.filter(function(item){
-        return itemId === item.id.toString()
-    })[0]
+    const targetItemObj = menuArray.find(item => itemId === item.id.toString())
     if (targetItemObj){
-        cartArr.push(targetItemObj)
+        const cartItem = cartArr.find(item => itemId === item.id.toString())
+        if (cartItem) {
+            cartItem.quantity += 1
+        } else {
+            cartArr.push(targetItemObj)
+        }
     }
     if (cartArr.length === 1) {
         renderFullCart()
