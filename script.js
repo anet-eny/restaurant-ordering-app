@@ -11,9 +11,9 @@ document.addEventListener('click', function(e){
 })
 
 function handleAddToCart(itemId) {
-    const targetItemObj = menuArray.filter(function(item){
+    const targetItemObj = menuArray.find(function(item){
         return itemId === item.id.toString()
-    })[0]
+    })
     if (targetItemObj){
         cartArr.push(targetItemObj)
     }
