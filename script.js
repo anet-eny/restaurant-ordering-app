@@ -1,5 +1,6 @@
 import { menuArray } from "./data.js";
 
+const modal = document.getElementById('modal')
 let cartArr = []
 
 document.addEventListener('click', function(e){
@@ -8,7 +9,7 @@ document.addEventListener('click', function(e){
     } else if (e.target.dataset.remove) {
         handleRemoveFromCart(e.target.dataset.remove)
     } else if (e.target.id === "purchase") {
-        console.log("clicked")
+        modal.style.display = "block"
     }
 })
 
