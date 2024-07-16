@@ -20,19 +20,14 @@
         <main>
             <div id="menu-el"></div>
             <div id="cart-el" class="cart-el"></div>
-            <div id="complete-el" class="complete-el">
-                <div class="complete-container">
-                    <h2>Thanks, James! Your order is on its way!</h2>
-                </div>
-            </div>
         </main>
         <div class="modal" id="modal">
             <div class="modal-container">
                 <h4>Enter card details</h4>
-                <form>
-                    <input type="text" placeholder="Enter your name" required>
-                    <input id="ccn" class="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19" placeholder="Enter card number" required>
-                    <input id="cvv" class="cvv" type="tel" inputmode="numeric" pattern="[0-9]{3,4}" maxlength="4" placeholder="Enter CVV" required>
+                <form id="payment-form">
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <input name="ccn" class="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19" placeholder="Enter card number" required>
+                    <input name="cvv" class="cvv" type="tel" inputmode="numeric" pattern="[0-9]{3,4}" maxlength="4" placeholder="Enter CVV" required>
                     <button id="pay-btn" class="pay-btn" type="submit">Pay</button>
                 </form>
             </div>

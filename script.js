@@ -1,7 +1,6 @@
 import { menuArray } from "./data.js";
 
-// const modal = document.getElementById('modal')
-// const payBtn = document.getElementById('pay-btn')
+const modal = document.getElementById('modal')
 
 let cartArr = []
 
@@ -11,10 +10,16 @@ document.addEventListener('click', function(e){
     } else if (e.target.dataset.remove) {
         handleRemoveFromCart(e.target.dataset.remove)
     } else if (e.target.id === "purchase") {
-        document.getElementById('modal').style.display = "block"
-    } else if (e.target.id === "pay-btn") {
-        console.log("clicked")
-    }
+        modal.style.display = "block"
+    } 
+})
+
+document.getElementById('payment-form').addEventListener('submit', function(e){
+    e.preventDefault()
+    modal.style.display = "none"
+    renderCompleteMessage()
+    cartArr = []
+    
 })
 
 function handleAddToCart(itemId) {
@@ -37,6 +42,15 @@ function handleRemoveFromCart(index) {
     renderFullCart()
     updateTotalPrice()
 }
+
+function renderCompleteMessage() {
+    document.getElementById('cart-el').innerHTML = `
+        <div class="complete-container">
+            <h2>Thanks, James! Your order is on its way!</h2>
+        </div>
+    `
+}
+
 
 function renderFullCart() {
     const index = cartArr.length - 1
