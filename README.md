@@ -12,7 +12,7 @@ This project implements a simple restaurant ordering app. Users can add and remo
 ## Key Learnings
 
 - **Event Listeners**: Used to handle click events and form submissions.
-- **Array Methods**: find(), splice() and reduce()
+- **Array Methods**: find(), splice(), map() and reduce()
 - **Dynamic DOM Manipulation**: Dynamically update the DOM to reflect changes in the cart.
 - **Object Destructuring**: Extract properties from objects for easier manipulation.
 
