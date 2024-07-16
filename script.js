@@ -1,8 +1,7 @@
 import { menuArray } from "./data.js";
 
 const modal = document.getElementById('modal')
-
-let cartArr = []
+const cartArr = []
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.add){
@@ -18,8 +17,6 @@ document.getElementById('payment-form').addEventListener('submit', function(e){
     e.preventDefault()
     modal.style.display = "none"
     renderCompleteMessage()
-    cartArr = []
-    
 })
 
 function handleAddToCart(itemId) {
@@ -49,6 +46,7 @@ function renderCompleteMessage() {
             <h2>Thanks, James! Your order is on its way!</h2>
         </div>
     `
+    cartArr.length = 0
 }
 
 
