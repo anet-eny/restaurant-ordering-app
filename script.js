@@ -7,6 +7,8 @@ document.addEventListener('click', function(e){
         handleAddToCart(e.target.dataset.add)
     } else if (e.target.dataset.remove) {
         handleRemoveFromCart(e.target.dataset.remove)
+    } else if (e.target.id === "purchase") {
+        console.log("clicked")
     }
 })
 
@@ -56,7 +58,7 @@ function renderFullCart() {
                     <h2>Total price:</h2>
                     <p id="total-price" class="item-price"></p> 
                 </div>
-                <button class="purchase-btn">Complete order</button>
+                <button id="purchase" class="purchase-btn">Complete order</button>
     `
 }
 
