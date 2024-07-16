@@ -24,15 +24,7 @@ function handleAddToCart(itemId) {
         return itemId === item.id.toString()
     })
     if (targetItemObj){
-        const cartItem = cartArr.find(item => itemId === item.id.toString())
-        if (cartItem) {
-            cartItem.quantity += 1
-            updateItemCart(cartItem)
-        } else {
-            const newCartItem = { ...targetItemObj, quantity: 1 }
-            cartArr.push(newCartItem)
-            renderNewCartItem(newCartItem)
-        }
+        cartArr.push(targetItemObj)
     }
     if (cartArr.length === 1) {
         renderFullCart()
@@ -61,7 +53,7 @@ function renderFullCart() {
     const index = cartArr.length - 1
     let cartHtml = ''
     cartArr.forEach(item => {
-        const { name, price, quantity } = item
+        const { name, price } = item
         cartHtml += `
             <div class="cart-item">
                 <div class="left-content">
