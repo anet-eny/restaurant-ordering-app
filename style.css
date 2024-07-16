@@ -35,8 +35,12 @@ h3 {
     font-size: 20px;
 }
 
-.order-h2 {
+.cart-el h2 {
     text-align: center;
+}
+
+.complete-container h2 {
+    color: #065F46;
 }
 
 /* layout */
@@ -101,6 +105,16 @@ header {
     align-items: center;
     justify-content: space-between;
     border-top: 2px solid #393333;
+}
+
+.complete-container {
+    width: 504px;
+    height: 120px;
+    margin: auto;
+    background-color: #ECFDF5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* buttons */

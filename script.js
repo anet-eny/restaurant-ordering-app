@@ -1,6 +1,8 @@
 import { menuArray } from "./data.js";
 
-const modal = document.getElementById('modal')
+// const modal = document.getElementById('modal')
+// const payBtn = document.getElementById('pay-btn')
+
 let cartArr = []
 
 document.addEventListener('click', function(e){
@@ -9,7 +11,9 @@ document.addEventListener('click', function(e){
     } else if (e.target.dataset.remove) {
         handleRemoveFromCart(e.target.dataset.remove)
     } else if (e.target.id === "purchase") {
-        modal.style.display = "block"
+        document.getElementById('modal').style.display = "block"
+    } else if (e.target.id === "pay-btn") {
+        console.log("clicked")
     }
 })
 
@@ -51,7 +55,7 @@ function renderFullCart() {
         
     })
     document.getElementById('cart-el').innerHTML = `
-                <h2 class="order-h2">Your order</h2>
+                <h2>Your order</h2>
                 <div id="cart-list" class="cart-list">
                     ${cartHtml}
                 </div>
