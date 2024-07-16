@@ -49,7 +49,6 @@ function renderCompleteMessage() {
     cartArr.length = 0
 }
 
-
 function renderFullCart() {
     const index = cartArr.length - 1
     let cartHtml = ''
