@@ -1,4 +1,4 @@
-# Shopping Cart Application
+# Restaurant Ordering App
 
 This project implements a simple restaurant ordering app. Users can add and remove items from the cart, view the total price, and complete a purchase through a modal form. This project was developed as part of the Scrimba curriculum.
 
